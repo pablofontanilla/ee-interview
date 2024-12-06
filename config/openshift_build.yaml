@@ -1,0 +1,25 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: serverapp
+spec:
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: serverapp
+  labels:
+    app: serverapp
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/jeff-roche/ee-interview
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: serverapp:latest

@@ -1,0 +1,40 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: serverapp
+spec:
+  replicas: 1
+  selector:
+    app: serverapp
+  template:
+    metadata:
+      labels:
+        app: serverapp
+    spec:
+      containers:
+      - name: serverapp-container
+        image: image-registry.openshift-image-registry.svc:5000/default/serverapp:latest
+        ports:
+        - containerPort: 80
+  triggers:
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - serverapp-container
+      from:
+        kind: ImageStreamTag
+        name: serverapp:latest
+  - type: ConfigChange
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: serverapp
+spec:
+  selector:
+    app: serverapp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
