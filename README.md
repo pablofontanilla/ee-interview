@@ -1,7 +1,7 @@
 # Edge Enablement Interview Application
 ## Prerequisites
 - It is preferred to be running on Linux, MacOS, or have [WSL2 on Windows](https://learn.microsoft.com/en-us/windows/wsl/install)
-- You will need to have a recent version of go (1.20+ is preferred) in your `$PATH`
+- You will need to have a recent version of go (1.21+ is preferred) in your `$PATH`
   - [Download Go](https://go.dev/doc/install)
 - You will need the Openshift CLI (oc) in your `$PATH`
   - [Linux x86](https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux.tar.gz)
@@ -11,9 +11,10 @@
 - You will need an IDE such as [Visual Studio Code](https://code.visualstudio.com/download)
 - You will need access to your terminal
 - Having `make` installed will allow easier running of the necessary commands
+- You will need a github account
 
 ## Instructions
-1. Repository Prep  
+1. Repository Prep
   Fork this repository and clone your fork
   ```bash
   $ git clone https://github.com/your-user/ee-interview.git
