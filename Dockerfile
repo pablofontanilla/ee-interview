@@ -15,5 +15,5 @@ FROM fedora:latest
 WORKDIR /
 COPY --from=builder /workspace/serverapp .
 USER 65532:65532
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/serverapp"]

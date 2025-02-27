@@ -15,7 +15,7 @@ spec:
       - name: serverapp-container
         image: image-registry.openshift-image-registry.svc:5000/default/serverapp:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
   triggers:
   - type: ImageChange
     imageChangeParams:
@@ -37,4 +37,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 8080
